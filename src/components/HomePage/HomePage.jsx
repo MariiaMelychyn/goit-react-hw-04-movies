@@ -19,7 +19,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Trending Today</h1>
+      
       <ul className={s.filmsList}>
         {trendingMovies.map(({ poster_path, title, id }) => (
           <li key={id} className={s.filmsListItem}>
