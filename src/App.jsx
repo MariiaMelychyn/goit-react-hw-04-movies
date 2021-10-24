@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { lazy, Suspense } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import AppBar from './components/AppBar';
+import Container from './components/Container';
 
-function App() {
+const HomePage = lazy(() =>
+  import('./components/HomePage' /* webpackChunkName: "HomePage" */),
+);
+const MoviesPage = lazy(() =>
+  import('./components/MoviesPage' /* webpackChunkName: "MoviesPage" */),
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    './components/MovieDetailsPage' /* webpackChunkName: "MovieDetailsPage" */
+  ),
+);
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <AppBar />
+
+      <Suspense fallback={<h1>Загружаем...</h1>}>
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+
+          <Route path="/movies" exact>
+            <MoviesPage />
+          </Route>
+
+          <Route path="/movies/:movieId">
+            <MovieDetailsPage />
+          </Route>
+        </Switch>
+      </Suspense>
+    </Container>
   );
 }
-
-export default App;
