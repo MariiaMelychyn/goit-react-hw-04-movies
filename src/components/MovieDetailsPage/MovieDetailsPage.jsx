@@ -57,7 +57,7 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <button onClick={goBack}>
+      <button onClick={goBack} >
         <span>Go Back</span>
       </button>
       {movie && (
