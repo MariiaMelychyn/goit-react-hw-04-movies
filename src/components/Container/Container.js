@@ -1,18 +1,20 @@
-// export default function Container({ children }) {
-//     return <div>{ children}</div>
-//   }
-import PropTypes from 'prop-types';
-import styles from './Container.module.css';
-const Container = ({ children }) => (
-  <div className={styles.container}>{children}</div>
-);
+import s from './Container.module.css';
 
-Container.defaultProps = {
-  children: [],
-};
+export default function Container({ children }) {
+    return <div className={s.container}>{ children}</div>
+  }
+// import PropTypes from 'prop-types';
+// import styles from './Container.module.css';
+// const Container = ({ children }) => (
+//   <div className={styles.container}>{children}</div>
+// );
 
-Container.propTypes = {
-  children: PropTypes.node,
-};
+// Container.defaultProps = {
+//   children: [],
+// };
 
-export default Container;
+// Container.propTypes = {
+//   children: PropTypes.node,
+// };
+
+// export default Container;
