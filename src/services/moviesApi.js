@@ -9,7 +9,7 @@ axios.defaults.params = {
   language: 'en-US',
 };
 
-async function getPopularMovies() {
+async function getPopularMovies(){
   try {
     const config = {
       url: `trending/movie/day`,
